@@ -1,14 +1,29 @@
+import './Main.css';
+
 function Main() {
   return (
     <main className="main-content">
-      <h2>Little Lemon, Chicago</h2>
-      <p>
-        We are a family-owned Mediterranean restaurant in Chicago serving
-        traditional recipes with a modern twist
-      </p>
-      <button className="main-content__button">Reserve a Table</button>
-      <p>
-        <h2>This week's specials!</h2>
+      <article className="main-content__intro-container">
+        <section className="main-content__text-content">
+          <h1 className="main-content__heading">Little Lemon</h1>
+          <h2 className="main-content__subheading">Chicago</h2>
+          <details className="main-content__description">
+            We are a family-owned Mediterranean restaurant in Chicago serving
+            traditional recipes with a modern twist
+          </details>
+          <button className="main-content__button">Reserve a Table</button>
+        </section>
+
+        <section className="main-content__image-container">
+          <img
+            src="/src/assets/RestaurantFood.jpg"
+            alt="Delicious Mediterranean Food"
+            className="main-content__image"
+          />
+        </section>
+      </article>
+      <article className="main-content__specials-container">
+        <h2 className="main-content__heading">This week's specials!</h2>
         <ul>
           <li>
             <h3>Greek Salad</h3>
@@ -37,7 +52,7 @@ function Main() {
             <p>$5.00</p>
           </li>
         </ul>
-      </p>
+      </article>
     </main>
   );
 }
