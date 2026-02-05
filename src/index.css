@@ -3,12 +3,33 @@
 @tailwind utilities;
 
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-}
+  /* Brand Colors */
+  --color-primary: #495e57;
+  --color-primary-yellow: #f4ce14;
+  --color-secondary: #ee9972;
+  --color-secondary-light: #fbdabb;
+  --color-highlight: #edefee;
+  --color-highlight-dark: #333333;
 
-body {
-  margin: 0;
-  min-height: 100vh;
+  /* Neutral Colors */
+  --color-white: #ffffff;
+  --color-gray-100: #edefee;
+  --color-gray-200: #ccc;
+  --color-gray-500: #666;
+  --color-gray-700: #333;
+  --color-black: #000000;
+
+  /* Typography */
+  --font-family-heading: 'Markazi Text medium', serif;
+  --font-family-body: 'Karla regular', sans-serif;
+
+  /* Border Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
 }

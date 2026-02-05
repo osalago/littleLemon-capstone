@@ -1,4 +1,5 @@
 import { Footer, Header, Main } from './components/layout';
+import './App.css';
 
 function App() {
   return (
