@@ -7,10 +7,10 @@ function Main() {
         <section className="main-content__text-content">
           <h1 className="main-content__heading">Little Lemon</h1>
           <h2 className="main-content__subheading">Chicago</h2>
-          <details className="main-content__description">
+          <p className="main-content__description">
             We are a family-owned Mediterranean restaurant in Chicago serving
             traditional recipes with a modern twist
-          </details>
+          </p>
           <button className="main-content__button">Reserve a Table</button>
         </section>
 
