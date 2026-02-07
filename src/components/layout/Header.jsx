@@ -10,7 +10,6 @@ function Header() {
           alt="Little Lemon Logo"
           className="header__logo"
         />
-        <h1 className="header__title">Little Lemon</h1>
         <Nav />
       </div>
     </header>

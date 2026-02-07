@@ -24,7 +24,10 @@ function Main() {
       </article>
       <article className="main-content__specials-container">
         <h2 className="main-content__heading">This week's specials!</h2>
-        <ul>
+        <button id="menu" className="main-content__button">
+          Online Menu
+        </button>
+        <ul className="main-content__cards">
           <li>
             <h3>Greek Salad</h3>
             <p>
