@@ -1,0 +1,40 @@
+.footer {
+  background-color: var(--color-highlight-dark);
+  color: #fff;
+  padding: 20px;
+  display: flex;
+  text-align: center;
+}
+
+.footer_logo {
+  width: 100px;
+  height: auto;
+  margin: 0 auto;
+}
+
+.footer p {
+  margin: 1rem 4rem;
+  font-family: var(--font-family-body);
+  font-size: 14px;
+  color: var(--color-highlight);
+}
+
+.footer a {
+  color: var(--color-highlight);
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  .footer {
+    flex-direction: column;
+    padding: 15px;
+  }
+
+  .footer p {
+    margin: 1rem 0;
+  }
+}

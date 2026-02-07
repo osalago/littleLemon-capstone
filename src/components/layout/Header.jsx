@@ -10,9 +10,8 @@ function Header() {
           alt="Little Lemon Logo"
           className="header__logo"
         />
+        <Nav />
       </div>
-      <h1 className="header__title">Little Lemon</h1>
-      <Nav />
     </header>
   );
 }

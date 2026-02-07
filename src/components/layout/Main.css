@@ -52,13 +52,37 @@
 }
 
 .main-content__specials-container {
-  background-color: var(--color-white);
+  background-color: var(--color-primary);
   margin-top: 4rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 2rem;
 }
 
 .main-content__specials-container h2 {
   font-family: var(--font-family-heading);
   font-size: 2rem;
-  color: var(--color-highlight-dark);
-  margin-bottom: 1.5rem;
+  color: var(--color-highlight);
+  margin-top: 0rem;
+  margin-bottom: 0rem;
+  margin-left: 0rem;
+  margin-right: 1rem;
+}
+
+#menu {
+  background-color: var(--color-primary-yellow);
+  color: var(--color-black);
+  border: auto;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 16px;
+}
+
+.main-content__cards {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  margin-left: 2rem;
 }
