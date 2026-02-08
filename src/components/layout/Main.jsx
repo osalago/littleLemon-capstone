@@ -1,27 +1,10 @@
+import Hero from '../Hero/Hero';
 import './Main.css';
 
 function Main() {
   return (
     <main className="main-content">
-      <article className="main-content__intro-container">
-        <section className="main-content__text-content">
-          <h1 className="main-content__heading">Little Lemon</h1>
-          <h2 className="main-content__subheading">Chicago</h2>
-          <p className="main-content__description">
-            We are a family-owned Mediterranean restaurant in Chicago serving
-            traditional recipes with a modern twist
-          </p>
-          <button className="main-content__button">Reserve a Table</button>
-        </section>
-
-        <section className="main-content__image-container">
-          <img
-            src="/src/assets/RestaurantFood.jpg"
-            alt="Delicious Mediterranean Food"
-            className="main-content__image"
-          />
-        </section>
-      </article>
+      <Hero />
       <article className="main-content__specials-container">
         <h2 className="main-content__heading">This week's specials!</h2>
         <button id="menu" className="main-content__button">
