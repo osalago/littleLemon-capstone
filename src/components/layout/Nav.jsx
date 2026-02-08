@@ -1,39 +1,25 @@
 import './Nav.css';
 
 function Nav() {
+  const navLinks = [
+    { label: 'Home', path: '/' },
+    { label: 'About', Path: '/about' },
+    { label: 'Menu', Path: '/menu' },
+    { label: 'Reservations', Path: '/reservations' },
+    { label: 'Order Online', Path: '/order-online' },
+    { label: 'Login', Path: '/login' },
+  ];
+
   return (
     <nav className="nav">
       <ul className="nav__list">
-        <li className="nav__item">
-          <a href="#home" className="nav__link">
-            Home
-          </a>
-        </li>
-        <li className="nav__item">
-          <a href="#about" className="nav__link">
-            About
-          </a>
-        </li>
-        <li className="nav__item">
-          <a href="#menu" className="nav__link">
-            Menu
-          </a>
-        </li>
-        <li className="nav__item">
-          <a href="#reservations" className="nav__link">
-            Reservations
-          </a>
-        </li>
-        <li className="nav__item">
-          <a href="#order-online" className="nav__link">
-            Order Online
-          </a>
-        </li>
-        <li className="nav__item">
-          <a href="#login" className="nav__link">
-            Login
-          </a>
-        </li>
+        {navLinks.map((link) => (
+          <li key={link.path} className="nav__item">
+            <a href={link.path} className="nav__link">
+              {link.label}
+            </a>
+          </li>
+        ))}
       </ul>
     </nav>
   );
