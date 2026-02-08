@@ -13,3 +13,32 @@
   font-size: 1rem;
   transition: color 0.3s ease;
 }
+
+.nav__item a:hover {
+  color: var(--color-secondary);
+}
+
+.nav__item a.active {
+  color: var(--color-secondary-light);
+  font-weight: bold;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .nav__list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--color-white);
+    padding: 1rem;
+    box-shadow: var(--shadow-md);
+  }
+
+  .nav__item a {
+    font-size: 0.9rem;
+    padding: 0rem 0rem;
+  }
+}
