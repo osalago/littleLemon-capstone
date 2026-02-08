@@ -1,3 +1,5 @@
+import { SpecialCard } from '../../components/features/menu';
+import { specials } from '../../data/specials';
 import './Specials.css';
 
 function Specials() {
@@ -11,8 +13,9 @@ function Specials() {
           </button>
         </section>
         <section className="specials__grid">
-          /* Specials cards will go here, but they are currently in the Main
-          component. * /
+          {specials.map((item) => (
+            <SpecialCard key={item.id} {...item} />
+          ))}
         </section>
       </article>
     </section>
