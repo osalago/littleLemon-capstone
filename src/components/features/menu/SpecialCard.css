@@ -1,0 +1,31 @@
+.special-card__image {
+  height: 200px;
+}
+
+.special-card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.75rem;
+}
+
+.special-card__title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--color-gray-700);
+  margin: 0;
+}
+
+.special-card__price {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-accent);
+}
+
+.special-card__description {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--color-primary);
+  margin: 0 0 1rem 0;
+  flex-grow: 1;
+}
