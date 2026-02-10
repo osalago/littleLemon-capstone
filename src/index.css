@@ -20,8 +20,14 @@
   --color-black: #000000;
 
   /* Typography */
-  --font-family-heading: 'Markazi Text medium', serif;
-  --font-family-body: 'Karla regular', sans-serif;
+  --font-family-heading: 'Markazi Text', serif;
+  --font-weight-heading: 500;
+  --font-family-subheading: 'Markazi Text', serif;
+  --font-weight-subheading: 400;
+  --font-family-body: 'Karla', sans-serif;
+  --font-weight-body: 400;
+  --font-weight-body-medium: 500;
+  --font-weight-body-bold: 700;
 
   /* Border Radius */
   --radius-sm: 4px;

@@ -1,11 +1,13 @@
 .testimonial-card {
-  background-color: var(--color-white);
-  border-radius: 16px;
+  background-color: var(
+    --color-highlight-dark
+  ); /*TODO: consider other colors for better contrast */
+  border-radius: var(--radius-lg);
   padding: 1.5rem;
 }
 
 .testimonial-card__rating {
-  color: var(--color-secondary);
+  color: var(--color-primary-yellow);
   font-size: 1.125rem;
   letter-spacing: 2px;
   margin-bottom: 1rem;
@@ -23,17 +25,23 @@
   height: 48px;
   border-radius: 50%;
   object-fit: cover;
-  background-color: var(--color-gray-100);
+  background-color: var(
+    --color-highlight-dark
+  ); /* Fallback color for images that fail to load */
 }
 
 .testimonial-card__name {
-  font-weight: 600;
-  color: var(--color-gray-700);
+  font-family: var(--font-family-body);
+  font-weight: var(--font-weight-body-bold);
+  font-size: 1.125rem;
+  color: var(--color-highlight);
 }
 
 .testimonial-card__review {
-  font-size: 0.9rem;
-  line-height: 1.6;
-  color: var(--color-primary);
+  font-family: var(--font-family-body);
+  font-weight: var(--font-weight-body);
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--color-secondary-light);
   margin: 0;
 }

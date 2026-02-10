@@ -1,6 +1,7 @@
 .testimonials {
   padding: 2rem 0;
   background-color: var(--color-primary);
+  border-radius: var(--radius-md); /*in case other background color selected*/
 }
 
 .testimonials__container {
@@ -11,8 +12,9 @@
 
 .testimonials__title {
   font-size: 2.5rem;
-  font-weight: 700;
-  color: var(--color-white);
+  font-family: var(--font-family-subheading);
+  font-weight: var(--font-weight-subheading);
+  color: var(--color-primary-yellow);
   text-align: center;
   margin: 0 0 2.5rem 0;
 }
