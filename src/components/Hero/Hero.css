@@ -38,22 +38,8 @@
   font-size: 1.125rem;
   color: var(--color-highlight);
   max-width: 400px;
-  margin-bottom: 0 0 2rem 0;
+  margin-bottom: 2rem;
   line-height: 1.5;
-}
-
-.hero__button {
-  /*TODO: create button component and use it here*/
-  background-color: var(--color-primary-yellow);
-  color: var(--color-black);
-  font-family: var(--font-family-body);
-  font-weight: var(--font-weight-body-bold);
-  border: auto;
-  padding: 0.75rem 1.5rem;
-  font-size: 1rem;
-  cursor: pointer;
-  border-radius: var(--radius-md);
-  margin-top: 3rem;
 }
 
 .hero__image {

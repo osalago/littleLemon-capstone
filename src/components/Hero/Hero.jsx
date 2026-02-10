@@ -1,3 +1,4 @@
+import Button from '../ui/Button/Button';
 import './Hero.css';
 
 function Hero() {
@@ -11,7 +12,9 @@ function Hero() {
             We are a family-owned Mediterranean restaurant in Chicago serving
             traditional recipes with a modern twist
           </p>
-          <button className="hero__button">Reserve a Table</button>
+          <Button href="/reservations" variant="primary">
+            Reserve a Table
+          </Button>
         </section>
         <section className="hero__image">
           <img
