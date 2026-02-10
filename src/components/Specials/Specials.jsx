@@ -1,5 +1,6 @@
 import { SpecialCard } from '../../components/features/menu';
 import { specials } from '../../data/specials';
+import Button from '../ui/Button/Button';
 import './Specials.css';
 
 function Specials() {
@@ -8,9 +9,9 @@ function Specials() {
       <article className="specials__container">
         <section className="specials__header">
           <h2 className="specials__title">This week's specials!</h2>
-          <button id="menu" className="specials__button">
+          <Button href="/menu" variant="primary">
             Online Menu
-          </button>
+          </Button>
         </section>
         <section className="specials__grid">
           {specials.map((item) => (
