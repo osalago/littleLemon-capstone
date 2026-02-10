@@ -6,7 +6,7 @@ function Header() {
     <header className="header">
       <div className="header__container">
         <img
-          src="/src/assets/Logo.svg"
+          src="assets/Logo.svg"
           alt="Little Lemon Logo"
           className="header__logo"
         />
