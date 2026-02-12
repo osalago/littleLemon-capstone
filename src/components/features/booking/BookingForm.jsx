@@ -4,11 +4,7 @@ import Button from '../../ui/Button';
 import Input from '../../ui/Input';
 import './BookingForm.css';
 
-function BookingForm({
-  availableTimes = ['17:00', '18:00', '19:00', '20:00', '21:00', '22:00'],
-  onDateChange,
-  onSubmit,
-}) {
+function BookingForm({ availableTimes = [], onDateChange, onSubmit }) {
   const [formData, setFormData] = useState({
     date: '',
     time: '',

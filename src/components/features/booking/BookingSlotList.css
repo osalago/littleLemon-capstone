@@ -1,0 +1,42 @@
+.booking-slots {
+    background-color: var(--color-gray-100);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+}
+
+.booking-slots h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-gray-700);
+    margin: 0 0 1rem 0;
+}
+
+.booking-slots ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.booking-slot {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    border-radius: var(--radius-md);
+    font-size: 0.95rem;
+}
+
+.booking-slot--available {
+    background-color: var(--color-white);
+    border: 1px solid var(--color-primary);
+    color: var(--color-primary);
+}
+
+.booking-slot--booked {
+    background-color: var(--color-gray-200);
+    color: var(--color-gray-500);
+    text-decoration: line-through;
+}
