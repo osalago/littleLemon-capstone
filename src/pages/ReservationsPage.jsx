@@ -7,8 +7,8 @@ const ALL_TIMES = ['17:00', '18:00', '19:00', '20:00', '21:00', '22:00'];
 
 // Simulates fetching available times for a date
 //const fetchAvailableTimes = (date) => {
-  // In reality, this would be an API call
-  // For now, return default times (could vary by date)
+// In reality, this would be an API call
+// For now, return default times (could vary by date)
 //  return ['17:00', '18:00', '19:00', '20:00', '21:00', '22:00'];
 //};
 
@@ -18,7 +18,12 @@ const timesReducer = (state, action) => {
     case 'UPDATE_TIMES':
       // return fetchAvailableTimes(action.date); # uncomment if API call should be used.
       // Filter out booked times to get available times
-      return ALL_TIMES.filter((time) => !state.bookedTimes.includes(time));
+      return {
+        ...state,
+        availableTimes: ALL_TIMES.filter(
+          (time) => !state.bookedTimes.includes(time)
+        ),
+      };
     case 'BOOK_TIME':
       // Add newly booked time to bookedTimes array
       return {

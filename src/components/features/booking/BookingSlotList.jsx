@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 
+import './BookingSlotList.css';
 import BookingSlot from './BookingSlot';
 
 function BookingSlotList({ allTimes, bookedTimes }) {
