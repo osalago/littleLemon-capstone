@@ -90,3 +90,4 @@ function ReservationsPage() {
 }
 
 export default ReservationsPage;
+export { ALL_TIMES, initializeTimes, timesReducer };
