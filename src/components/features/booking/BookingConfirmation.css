@@ -22,14 +22,18 @@
 }
 
 .booking-confirmation__title {
+    font-family: var(--font-family-heading);
     font-size: 2rem;
-    color: var(--color-gray-700);
+    font-weight: var(--font-weight-heading);
+    color: var(--color-primary);
     margin: 0 0 0.5rem 0;
 }
 
 .booking-confirmation__message {
+    font-family: var(--font-family-body);
+    font-weight: var(--font-weight-body-medium);
     font-size: 1.125rem;
-    color: var(--color-gray-500);
+    color: var(--color-primary);
     margin: 0 0 2rem 0;
 }
 
@@ -40,7 +44,7 @@
     margin-bottom: 2rem;
     padding: 1.5rem;
     background-color: var(--color-gray-100);
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-lg);
 }
 
 .booking-confirmation__detail {
@@ -50,6 +54,8 @@
 }
 
 .booking-confirmation__label {
+    font-family: var(--font-family-body);
+    font-weight: var(--font-weight-body);
     font-size: 0.85rem;
     color: var(--color-gray-500);
     text-transform: uppercase;
@@ -57,15 +63,23 @@
 }
 
 .booking-confirmation__value {
+    font-family: var(--font-family-body);
+    font-weight: var(--font-weight-body-medium);
     font-size: 1.125rem;
-    font-weight: 600;
-    color: var(--color-gray-700);
+    color: var(--color-highlight-dark);
 }
 
 .booking-confirmation__email {
-    font-size: 0.95rem;
-    color: var(--color-gray-500);
+    font-family: var(--font-family-body);
+    font-size: 1rem;
+    color: var(--color-secondary);
     margin: 0 0 2rem 0;
+}
+
+.booking-confirmation__another {
+    font-family: var(--font-family-subheading);
+    width: 100%;
+    font-size: 1.125rem;
 }
 
 /* Responsive */

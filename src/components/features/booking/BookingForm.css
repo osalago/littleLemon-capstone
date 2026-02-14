@@ -8,9 +8,10 @@
 }
 
 .booking-form__title {
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--color-gray-700);
+    font-family: var(--font-family-heading);
+    font-size: 2.5rem;
+    font-weight: var(--font-weight-heading);
+    color: var(--color-primary);
     margin: 0 0 2rem 0;
     text-align: center;
 }
@@ -22,9 +23,10 @@
 }
 
 .booking-form__legend {
+    font-family: var(--font-family-subheading);
     font-size: 1.25rem;
-    font-weight: 600;
-    color: var(--color-primary);
+    font-weight: var(--font-weight-subheading);
+    color: var(--color-highlight-dark);
     margin-bottom: 1rem;
     padding-bottom: 0.5rem;
     border-bottom: 2px solid var(--color-secondary);
@@ -43,6 +45,7 @@
 }
 
 .booking-form__submit {
+    font-family: var(--font-family-subheading);
     width: 100%;
     padding: 1rem;
     font-size: 1.125rem;

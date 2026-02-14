@@ -40,7 +40,11 @@ function BookingConfirmation({ booking, onNewBooking }) {
         A confirmation email has been sent to <strong>{booking.email}</strong>
       </p>
 
-      <Button variant="primary" onClick={onNewBooking}>
+      <Button
+        variant="primary"
+        onClick={onNewBooking}
+        className="booking-confirmation__another"
+      >
         Make Another Reservation
       </Button>
     </div>
