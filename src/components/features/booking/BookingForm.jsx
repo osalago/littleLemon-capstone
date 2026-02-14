@@ -1,92 +1,71 @@
 /* eslint-disable react/prop-types */
-import { useState } from 'react';
+import { useFormValidation } from '../../../hooks';
 import Button from '../../ui/Button';
 import Input from '../../ui/Input';
 import './BookingForm.css';
 
+const initialValues = {
+  date: '',
+  time: '',
+  guests: 2,
+  occasion: 'none',
+  firstName: '',
+  lastName: '',
+  email: '',
+  phone: '',
+  specialRequests: '',
+};
+
+const validate = (values) => {
+  const errors = {};
+
+  if (!values.date) {
+    errors.date = 'Please select a date';
+  }
+
+  if (!values.time) {
+    errors.time = 'Please select a time';
+  }
+
+  if (values.guests < 1 || values.guests > 10) {
+    errors.guests = 'Guests must be between 1 and 10';
+  }
+
+  if (!values.firstName?.trim()) {
+    errors.firstName = 'First name is required';
+  }
+
+  if (!values.lastName?.trim()) {
+    errors.lastName = 'Last name is required';
+  }
+
+  if (!values.email?.trim()) {
+    errors.email = 'Email is required';
+  } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email)) {
+    errors.email = 'Please enter a valid email';
+  }
+
+  if (!values.phone?.trim()) {
+    errors.phone = 'Phone number is required';
+  }
+
+  return errors;
+};
+
 function BookingForm({ availableTimes = [], onDateChange, onSubmit }) {
-  const [formData, setFormData] = useState({
-    date: '',
-    time: '',
-    guests: 2,
-    occasion: 'none',
-    firstName: '',
-    lastName: '',
-    email: '',
-    phone: '',
-    specialRequests: '',
-  });
+  const { values, errors, touched, handleChange, handleBlur, handleSubmit } =
+    useFormValidation(initialValues, validate);
 
-  const [errors, setErrors] = useState({});
+  const onChange = (e) => {
+    handleChange(e);
 
-  const validateForm = () => {
-    const newErrors = {};
-
-    if (!formData.date) {
-      newErrors.date = 'Please select a date';
-    }
-
-    if (!formData.time) {
-      newErrors.time = 'Please select a time';
-    }
-
-    if (formData.guests < 1 || formData.guests > 10) {
-      newErrors.guests = 'Guests must be between 1 and 10';
-    }
-
-    if (!formData.firstName.trim()) {
-      newErrors.firstName = 'First name is required';
-    }
-
-    if (!formData.lastName.trim()) {
-      newErrors.lastName = 'Last name is required';
-    }
-
-    if (!formData.email.trim()) {
-      newErrors.email = 'Email is required';
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = 'Please enter a valid email';
-    }
-
-    if (!formData.phone.trim()) {
-      newErrors.phone = 'Phone number is required';
-    }
-
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-
-    // Clear error when user starts typing
-    if (errors[name]) {
-      setErrors((prev) => ({
-        ...prev,
-        [name]: '',
-      }));
-    }
-
-    // Trigger date change to update available times
-    if (name === 'date' && onDateChange) {
-      onDateChange(value);
-    }
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    if (validateForm()) {
-      onSubmit(formData);
+    if (e.target.name === 'date' && onDateChange) {
+      onDateChange(e.target.value);
     }
   };
 
   return (
-    <form className="booking-form" onSubmit={handleSubmit} noValidate>
+    <form className="booking-form" onSubmit={handleSubmit(onSubmit)} noValidate>
       <h2 className="booking-form__title">Reserve a Table</h2>
 
       {/* Date & Time Section */}
@@ -98,18 +77,20 @@ function BookingForm({ availableTimes = [], onDateChange, onSubmit }) {
             type="date"
             label="Date"
             name="date"
-            value={formData.date}
-            onChange={handleChange}
-            error={errors.date}
+            value={values.date}
+            onChange={onChange}
+            onBlur={handleBlur}
+            error={touched.date && errors.date}
             required
           />
 
           <Input.Select
             label="Time"
             name="time"
-            value={formData.time}
+            value={values.time}
             onChange={handleChange}
-            error={errors.time}
+            onBlur={handleBlur}
+            error={touched.time && errors.time}
             required
           >
             <option value="">Select a time</option>
@@ -126,9 +107,10 @@ function BookingForm({ availableTimes = [], onDateChange, onSubmit }) {
             type="number"
             label="Number of guests"
             name="guests"
-            value={formData.guests}
+            value={values.guests}
             onChange={handleChange}
-            error={errors.guests}
+            onBlur={handleBlur}
+            error={touched.guests && errors.guests}
             min="1"
             max="10"
             required
@@ -137,7 +119,7 @@ function BookingForm({ availableTimes = [], onDateChange, onSubmit }) {
           <Input.Select
             label="Occasion"
             name="occasion"
-            value={formData.occasion}
+            value={values.occasion}
             onChange={handleChange}
           >
             <option value="none">No special occasion</option>
@@ -157,18 +139,20 @@ function BookingForm({ availableTimes = [], onDateChange, onSubmit }) {
           <Input
             label="First Name"
             name="firstName"
-            value={formData.firstName}
+            value={values.firstName}
             onChange={handleChange}
-            error={errors.firstName}
+            onBlur={handleBlur}
+            error={touched.firstName && errors.firstName}
             required
           />
 
           <Input
             label="Last Name"
             name="lastName"
-            value={formData.lastName}
+            value={values.lastName}
             onChange={handleChange}
-            error={errors.lastName}
+            onBlur={handleBlur}
+            error={touched.lastName && errors.lastName}
             required
           />
         </div>
@@ -178,9 +162,10 @@ function BookingForm({ availableTimes = [], onDateChange, onSubmit }) {
             type="email"
             label="Email"
             name="email"
-            value={formData.email}
+            value={values.email}
             onChange={handleChange}
-            error={errors.email}
+            onBlur={handleBlur}
+            error={touched.email && errors.email}
             required
           />
 
@@ -188,9 +173,10 @@ function BookingForm({ availableTimes = [], onDateChange, onSubmit }) {
             type="tel"
             label="Phone"
             name="phone"
-            value={formData.phone}
+            value={values.phone}
             onChange={handleChange}
-            error={errors.phone}
+            onBlur={handleBlur}
+            error={touched.phone && errors.phone}
             required
           />
         </div>
@@ -198,7 +184,7 @@ function BookingForm({ availableTimes = [], onDateChange, onSubmit }) {
         <Input.Textarea
           label="Special Requests"
           name="specialRequests"
-          value={formData.specialRequests}
+          value={values.specialRequests}
           onChange={handleChange}
           placeholder="Any dietary requirements or special requests?"
           className="booking-form__field--full"
