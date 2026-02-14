@@ -11,7 +11,7 @@ function Nav() {
   ];
 
   return (
-    <nav className="nav">
+    <nav aria-label="Main Navigation" className="nav">
       <ul className="nav__list">
         {navLinks.map((link) => (
           <li key={link.path} className="nav__item">
