@@ -1,16 +1,8 @@
-import { useReducer, useState } from 'react';
+import { useReducer, useState, useEffect } from 'react';
 import BookingConfirmation from '../components/features/booking/BookingConfirmation';
 import BookingForm from '../components/features/booking/BookingForm';
 import BookingSlotList from '../components/features/booking/BookingSlotList';
-
-const ALL_TIMES = ['17:00', '18:00', '19:00', '20:00', '21:00', '22:00'];
-
-// Simulates fetching available times for a date
-//const fetchAvailableTimes = (date) => {
-// In reality, this would be an API call
-// For now, return default times (could vary by date)
-//  return ['17:00', '18:00', '19:00', '20:00', '21:00', '22:00'];
-//};
+import { fetchAvailableTimes, submitBooking } from '../services/api';
 
 // Reducer to manage available times
 const timesReducer = (state, action) => {
@@ -20,9 +12,7 @@ const timesReducer = (state, action) => {
       // Filter out booked times to get available times
       return {
         ...state,
-        availableTimes: ALL_TIMES.filter(
-          (time) => !state.bookedTimes.includes(time)
-        ),
+        availableTimes: action.times,
       };
     case 'BOOK_TIME':
       // Add newly booked time to bookedTimes array
@@ -38,7 +28,7 @@ const timesReducer = (state, action) => {
 
 // Initialize with default times
 const initializeTimes = () => ({
-  availableTimes: ALL_TIMES,
+  availableTimes: [],
   bookedTimes: [],
 });
 
@@ -50,15 +40,26 @@ function ReservationsPage() {
   );
   const [confirmedBooking, setConfirmedBooking] = useState(null);
 
+  // Fetch times for today on initial load
+  useEffect(() => {
+    const today = new Date();
+    const times = fetchAvailableTimes(today);
+    dispatch({ type: 'UPDATE_TIMES', times });
+  }, []);
+
   const handleDateChange = (date) => {
-    dispatch({ type: 'UPDATE_TIMES', date });
+    const times = fetchAvailableTimes(date);
+    dispatch({ type: 'UPDATE_TIMES', times });
   };
 
   const handleSubmit = (formData) => {
     // API call would go here
+    const success = submitBooking(formData);
     // Mark the time as booked
-    dispatch({ type: 'BOOK_TIME', time: formData.time });
-    setConfirmedBooking(formData);
+    if (success) {
+      dispatch({ type: 'BOOK_TIME', time: formData.time });
+      setConfirmedBooking(formData);
+    }
   };
 
   const handleNewBooking = () => {
@@ -80,7 +81,7 @@ function ReservationsPage() {
             onSubmit={handleSubmit}
           />
           <BookingSlotList
-            allTimes={ALL_TIMES}
+            allTimes={timesState.availableTimes}
             bookedTimes={timesState.bookedTimes}
           />
         </div>
@@ -90,4 +91,4 @@ function ReservationsPage() {
 }
 
 export default ReservationsPage;
-export { ALL_TIMES, initializeTimes, timesReducer };
+export { initializeTimes, timesReducer };
