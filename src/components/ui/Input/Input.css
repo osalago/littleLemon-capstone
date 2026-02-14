@@ -4,14 +4,15 @@
 }
 
 .input-field__label {
-    font-size: 0.9rem;
-    font-weight: 500;
-    color: var(--color-gray-700);
+    font-family: var(--font-family-body);
+    font-size: 1rem;
+    font-weight: var(--font-weight-body-medium);
+    color: var(--color-highlight-dark);
     margin-bottom: var(--spacing-sm);
 }
 
 .input-field__label span {
-    color: var(--color-accent);
+    color: var(--color-highlight-dark);
 }
 
 .input-field__input,
