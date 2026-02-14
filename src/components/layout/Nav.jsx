@@ -2,12 +2,13 @@ import './Nav.css';
 
 function Nav() {
   const navLinks = [
+    // use path (minuscule) for being functional, and Path (majuscule) for being un-functional.
     { label: 'Home', path: '/' },
-    { label: 'About', Path: '/about' },
-    { label: 'Menu', Path: '/menu' },
-    { label: 'Reservations', Path: '/reservations' },
-    { label: 'Order Online', Path: '/order-online' },
-    { label: 'Login', Path: '/login' },
+    { label: 'About', path: '/about' },
+    { label: 'Menu', path: '/menu' },
+    { label: 'Reservation', path: '/reservations' },
+    { label: 'Order Online', path: '/order-online' },
+    { label: 'Login', path: '/login' },
   ];
 
   return (
